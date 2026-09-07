@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <title>Blue Whale Official</title>
+  <title>Other Projects — Blue Whale Official</title>
 
   <link rel="icon" href="favicon.ico">
 
@@ -13,46 +16,35 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
       min-height: 100vh;
-      background: #ffffff;
-      color: #075bc9;
+
+      background: #f7fbff;
+      color: #123;
+
       font-family: "Comic Sans MS", "Comic Sans", cursive;
-      display: flex;
-      flex-direction: column;
-      transition: padding-left 0.3s ease;
+
+      padding-left: 250px;
     }
 
-    /* =========================
-       SIDEBAR
-    ========================= */
-
+    /* SIDEBAR */
     .sidebar {
       position: fixed;
-      top: 0;
       left: 0;
+      top: 0;
+      bottom: 0;
+
       width: 250px;
-      height: 100vh;
 
       background: #0877e8;
       border-right: 5px solid #075bc9;
 
-      padding: 25px 18px;
+      padding: 28px 18px;
 
       z-index: 1000;
 
-      display: flex;
-      flex-direction: column;
-
-      transform: translateX(0);
       transition: transform 0.3s ease;
-
-      box-shadow: 5px 0 0 #75b9ff;
     }
 
     .sidebar.closed {
@@ -61,410 +53,342 @@
 
     .sidebar-title {
       color: white;
-      font-size: 27px;
+
+      font-size: 22px;
       font-weight: bold;
 
-      margin: 10px 10px 25px;
-
-      transform: rotate(-2deg);
+      margin: 5px 12px 28px;
     }
 
     .sidebar a {
+      display: block;
+
       color: white;
       text-decoration: none;
 
-      font-size: 18px;
       font-weight: bold;
 
-      padding: 13px 12px;
-      margin: 4px 0;
+      padding: 13px 14px;
 
-      border: 3px solid transparent;
-      border-radius: 8px 12px 7px 10px;
+      border-radius: 10px;
 
-      transform: rotate(-1deg);
+      margin: 6px 0;
 
-      transition:
-        background 0.2s ease,
-        transform 0.2s ease,
-        border 0.2s ease;
+      transition: 0.2s;
     }
 
-    .sidebar a:nth-child(even) {
-      transform: rotate(1deg);
-    }
-
-    .sidebar a:hover {
+    .sidebar a:hover,
+    .sidebar a.active {
       background: white;
       color: #0877e8;
 
-      border: 3px solid #075bc9;
-
-      transform: rotate(-2deg) scale(1.04);
+      transform: rotate(-1deg) translateX(3px);
     }
 
     .close-sidebar {
       position: absolute;
 
-      top: 12px;
-      right: 12px;
+      right: 14px;
+      top: 14px;
 
-      width: 38px;
-      height: 38px;
+      width: 36px;
+      height: 36px;
 
-      border: 3px solid white;
-      border-radius: 8px;
+      border: 0;
+      border-radius: 9px;
 
-      background: #075bc9;
+      background: rgba(255, 255, 255, 0.2);
+
       color: white;
 
-      font-size: 27px;
-      font-weight: bold;
+      font-size: 26px;
+
+      font-family: "Comic Sans MS", cursive;
 
       cursor: pointer;
-
-      transform: rotate(3deg);
-
-      transition:
-        transform 0.2s ease,
-        background 0.2s ease;
     }
 
     .close-sidebar:hover {
       background: white;
-      color: #075bc9;
-      transform: rotate(-5deg) scale(1.1);
+      color: #0877e8;
     }
 
-    /* =========================
-       HEADER
-    ========================= */
-
+    /* HEADER */
     header {
       height: 76px;
+
+      background: white;
+
+      border-bottom: 1px solid #dcecff;
 
       display: flex;
       align-items: center;
 
-      padding: 0 35px;
-
-      border-bottom: 3px solid #0877e8;
-
-      background: white;
-
-      margin-left: 250px;
-
-      transition: margin-left 0.3s ease;
-
-      box-shadow: 0 3px 0 #75b9ff;
-    }
-
-    body.sidebar-closed header {
-      margin-left: 0;
+      padding: 0 40px;
     }
 
     .brand {
       display: flex;
       align-items: center;
+
       gap: 12px;
+
+      color: #1268d9;
 
       font-size: 21px;
       font-weight: bold;
-
-      transform: rotate(-1deg);
     }
 
     .brand img {
-      width: 48px;
-      height: 48px;
+      width: 46px;
+      height: 46px;
 
       object-fit: contain;
-
-      border: 3px solid #0877e8;
-      border-radius: 50%;
-
-      padding: 3px;
-
-      animation: littleBob 2.5s ease-in-out infinite;
     }
 
-    /* =========================
-       MAIN
-    ========================= */
-
+    /* MAIN */
     main {
-      flex: 1;
+      width: min(1100px, 90%);
 
-      margin-left: 250px;
+      margin: auto;
 
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      padding: 50px 20px;
-
-      transition: margin-left 0.3s ease;
-    }
-
-    body.sidebar-closed main {
-      margin-left: 0;
-    }
-
-    .logo {
-      width: min(430px, 75vw);
-      height: auto;
-
-      margin-bottom: 25px;
-
-      animation:
-        whaleFloat 3s ease-in-out infinite;
-
-      filter:
-        drop-shadow(5px 5px 0 #0877e8);
+      padding: 65px 0;
     }
 
     h1 {
-      margin: 0 0 28px;
-
-      font-size: clamp(32px, 6vw, 50px);
-
-      text-align: center;
-
       color: #075bc9;
 
-      transform: rotate(-1deg);
+      font-size: 48px;
 
-      text-shadow:
-        2px 2px 0 #75b9ff;
+      margin: 0 0 12px;
+
+      animation: appear 0.6s ease;
     }
 
-    /* =========================
-       SEARCH BAR
-    ========================= */
+    .subtitle {
+      color: #637a94;
 
-    .search {
-      width: min(620px, 90vw);
-      height: 58px;
+      font-size: 18px;
 
-      display: flex;
-      align-items: center;
+      margin-bottom: 35px;
+    }
 
-      padding: 5px 7px 5px 20px;
+    /* PROJECT GRID */
+    .projects {
+      display: grid;
 
+      grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+      gap: 25px;
+    }
+
+    /* PROJECT CARD */
+    .project-card {
       background: white;
 
       border: 4px solid #0877e8;
 
-      border-radius: 12px 25px 15px 20px;
+      border-radius:
+        8px 13px 7px 12px;
+
+      padding: 28px;
 
       box-shadow:
-        5px 5px 0 #0877e8,
-        -2px 2px 0 #75b9ff;
+        6px 6px 0 #0877e8,
+        -3px 2px 0 #75b9ff;
 
-      transform: rotate(-1deg);
+      transform: rotate(-0.7deg);
 
-      animation: searchWiggle 4s ease-in-out infinite;
-    }
-
-    .search input {
-      flex: 1;
-
-      min-width: 0;
-
-      border: 0;
-      outline: 0;
-
-      background: transparent;
-
-      font-family:
-        "Comic Sans MS",
-        "Comic Sans",
-        cursive;
-
-      font-size: 18px;
-
-      color: #123;
-    }
-
-    .search input::placeholder {
-      color: #8aa0b8;
-    }
-
-    .search button {
-      width: 45px;
-      height: 45px;
-
-      border: 3px solid #075bc9;
-      border-radius: 50%;
-
-      background: #0877e8;
-      color: white;
-
-      font-family:
-        "Comic Sans MS",
-        "Comic Sans",
-        cursive;
-
-      font-size: 25px;
-      font-weight: bold;
-
-      cursor: pointer;
-
-      transform: rotate(4deg);
+      animation:
+        cardAppear 0.7s ease both,
+        projectFloat 4s ease-in-out infinite;
 
       transition:
         transform 0.2s ease,
-        background 0.2s ease;
+        box-shadow 0.2s ease;
     }
 
-    .search button:hover {
-      background: #075bc9;
-      transform: rotate(-6deg) scale(1.08);
+    .project-card:hover {
+      transform:
+        rotate(1deg)
+        translateY(-7px);
+
+      box-shadow:
+        9px 9px 0 #0877e8,
+        -3px 3px 0 #75b9ff;
     }
 
-    /* =========================
-       DOODLES
-    ========================= */
+    .project-card h2 {
+      color: #075bc9;
 
-    .doodle {
-      position: fixed;
+      margin-top: 0;
 
-      color: #0877e8;
-
-      font-size: 30px;
-
-      pointer-events: none;
-
-      opacity: 0.5;
-
-      z-index: 0;
+      font-size: 29px;
     }
 
-    .doodle.one {
-      top: 120px;
-      right: 7%;
+    .project-card p {
+      color: #637a94;
 
-      transform: rotate(12deg);
+      line-height: 1.7;
+
+      font-size: 16px;
     }
 
-    .doodle.two {
-      bottom: 120px;
-      left: 8%;
+    /* LANGUAGE */
+    .language {
+      display: inline-flex;
 
-      transform: rotate(-15deg);
-    }
+      align-items: center;
 
-    .doodle.three {
-      top: 45%;
-      right: 4%;
+      gap: 8px;
 
-      transform: rotate(-10deg);
-    }
+      margin: 12px 0 20px;
 
-    /* =========================
-       FOOTER
-    ========================= */
+      padding: 7px 11px;
 
-    footer {
-      margin-left: 250px;
+      border-radius: 20px;
 
-      padding: 20px;
+      background: #fff8d6;
 
-      text-align: center;
+      border: 2px solid #f0c900;
 
-      color: #8aa0b8;
+      color: #806900;
 
       font-size: 14px;
 
-      border-top: 2px dashed #75b9ff;
-
-      transition: margin-left 0.3s ease;
+      font-weight: bold;
     }
 
-    body.sidebar-closed footer {
-      margin-left: 0;
+    /* JAVASCRIPT CIRCLE */
+    .javascript-dot {
+      width: 14px;
+      height: 14px;
+
+      border-radius: 50%;
+
+      background: #f7df1e;
+
+      border: 2px solid #d5b900;
+
+      display: inline-block;
+
+      flex-shrink: 0;
     }
 
-    /* =========================
-       ANIMATIONS
-    ========================= */
+    /* GITHUB BUTTON */
+    .github-link {
+      display: inline-block;
 
-    @keyframes whaleFloat {
-      0% {
-        transform: translateY(0) rotate(-1deg);
+      padding: 12px 18px;
+
+      background: #0877e8;
+
+      color: white;
+
+      text-decoration: none;
+
+      border-radius: 9px;
+
+      font-weight: bold;
+
+      border: 3px solid #075bc9;
+
+      box-shadow: 3px 3px 0 #075bc9;
+
+      transition: 0.2s;
+    }
+
+    .github-link:hover {
+      background: white;
+
+      color: #0877e8;
+
+      transform:
+        rotate(-1deg)
+        translateY(-2px);
+
+      box-shadow:
+        5px 5px 0 #075bc9;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+
+      padding: 22px;
+
+      color: #8aa0b8;
+
+      background: white;
+
+      border-top: 1px solid #dcecff;
+    }
+
+    /* ANIMATIONS */
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes cardAppear {
+      from {
+        opacity: 0;
+        transform:
+          translateY(25px)
+          rotate(-4deg);
+      }
+
+      to {
+        opacity: 1;
+        transform:
+          translateY(0)
+          rotate(-0.7deg);
+      }
+    }
+
+    @keyframes projectFloat {
+      0%, 100% {
+        transform:
+          rotate(-0.7deg)
+          translateY(0);
       }
 
       50% {
-        transform: translateY(-8px) rotate(1deg);
-      }
-
-      100% {
-        transform: translateY(0) rotate(-1deg);
+        transform:
+          rotate(0.7deg)
+          translateY(-4px);
       }
     }
 
-    @keyframes littleBob {
-      0%,
-      100% {
-        transform: rotate(-3deg) translateY(0);
-      }
+    /* MOBILE */
+    @media (max-width: 800px) {
 
-      50% {
-        transform: rotate(4deg) translateY(-4px);
-      }
-    }
-
-    @keyframes searchWiggle {
-      0%,
-      100% {
-        transform: rotate(-1deg);
-      }
-
-      50% {
-        transform: rotate(1deg);
-      }
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 700px) {
-
-      .sidebar {
-        width: 220px;
+      body {
+        padding-left: 0;
       }
 
       header {
-        margin-left: 0;
-        padding: 0 18px;
+        padding-left: 24px;
       }
 
       main {
-        margin-left: 0;
-        padding: 35px 15px;
+        width: 92%;
       }
 
-      footer {
-        margin-left: 0;
+      h1 {
+        font-size: 40px;
       }
 
-      .brand {
-        font-size: 18px;
-      }
-
-      .brand img {
-        width: 42px;
-        height: 42px;
-      }
-
-      .logo {
-        width: min(350px, 85vw);
-      }
-
-      .search {
-        width: 90vw;
+      .projects {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -472,16 +396,14 @@
 
 <body>
 
-  <!-- =========================
-       SIDEBAR
-  ========================== -->
-
+  <!-- SIDEBAR -->
   <aside class="sidebar" id="sidebar">
 
     <button
       class="close-sidebar"
       onclick="closeSidebar()"
-      aria-label="Close sidebar">
+      aria-label="Close sidebar"
+    >
       ×
     </button>
 
@@ -489,51 +411,37 @@
       Blue Whale
     </div>
 
-    <a class="active" href="index.html">
+    <a href="index.html">
       Include
     </a>
 
-    <a href="members.html">
-      Members
-    </a>
-
-    <a href="versions.html">
-      Versions
-    </a>
-
-    <a href="other-projects.html">
+    <a
+      href="other-projects.html"
+      class="active"
+    >
       Other Projects
-    </a>
-
-    <a href="wasm-games.html">
-      WASM Games
-    </a>
-
-    <a href="contact.html">
-      Contact Me
     </a>
 
     <a
       href="https://www.youtube.com/@DUUUINGDUCK"
       target="_blank"
-      rel="noopener">
+      rel="noopener"
+    >
       YT Channel
     </a>
 
   </aside>
 
 
-  <!-- =========================
-       HEADER
-  ========================== -->
-
+  <!-- HEADER -->
   <header>
 
     <div class="brand">
 
       <img
         src="blue-whale-logo.png"
-        alt="Blue Whale">
+        alt="Blue Whale Logo"
+      >
 
       <span>
         Blue Whale Official
@@ -544,87 +452,67 @@
   </header>
 
 
-  <!-- =========================
-       DOODLES
-  ========================== -->
-
-  <div class="doodle one">
-    ~~~
-  </div>
-
-  <div class="doodle two">
-    ☆
-  </div>
-
-  <div class="doodle three">
-    ~
-  </div>
-
-
-  <!-- =========================
-       MAIN
-  ========================== -->
-
+  <!-- MAIN -->
   <main>
 
-    <img
-      class="logo"
-      src="blue-whale-logo.png"
-      alt="Blue Whale logo">
-
     <h1>
-      Blue Whale Official
+      Other Projects
     </h1>
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
+    <p class="subtitle">
+      Projects and experiments from Blue Whale Official.
+    </p>
 
+
+    <section class="projects">
+
+      <!-- WASM-PORT -->
+      <article class="project-card">
+
+        <h2>
+          wasm-port
+        </h2>
+
+        <div class="language">
+          <span class="javascript-dot"></span>
+          JavaScript
+        </div>
+
+        <p>
+          A JavaScript project for wasm-port.
+        </p>
+
+        <a
+          class="github-link"
+          href="https://github.com/rayojo67-lang/wasm-port"
+          target="_blank"
+          rel="noopener"
+        >
+          View on GitHub
+        </a>
+
+      </article>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
   <footer>
     © 2026 Blue Whale Official
   </footer>
 
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
-
   <script>
-
-    function searchWeb(event) {
-
-      event.preventDefault();
-
-      const query =
-        document
-          .getElementById("searchInput")
-          .value
-          .trim();
-
-      if (query) {
-
-        window.location.href =
-          "https://www.google.com/search?q=" +
-          encodeURIComponent(query);
-
-      }
-
-    }
-
-
     function closeSidebar() {
+      document
+        .getElementById("sidebar")
+        .classList
+        .add("closed");
 
-      const sidebar =
-        document.getElementById("sidebar");
-
-      sidebar.classList.add("closed");
-
-      document.body.classList.add(
-        "sidebar-closed"
-      );
-
+      document.body.style.paddingLeft = "0";
     }
-
   </script>
 
 </body>
